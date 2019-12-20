@@ -7,6 +7,16 @@ scrapes barcode information from open ean database
 - reformats data to proper JSON
 - strips useless data (e.g. formatting strings)
 - converts number as strings to real numbers
-- stores valid barcodes in valid.json
-- stores invalid barcodes in invalid.json
+- stores valid barcodes in valid.json (appends file and creates if not existing)
+- stores invalid barcodes in invalid.json (appends file and creates if not existing)
 - stores valid barcode and information as separate JSON file in folder "barcodes"
+
+## install
+
+`pip3 install requests`
+
+## run
+
+`python3 barcode.py > output.txt`
+
+

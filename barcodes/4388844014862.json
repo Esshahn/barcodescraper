@@ -1,1 +1,20 @@
-{"barcode": 4388844014862, "error": 0, "asin": "", "name": "Traubensaft", "detailname": "Merlot traube, rewe, 100% Direktsaft aus der merlot traube", "vendor": "", "maincat": "Getr\u00e4nke, Alkohol", "subcat": "Frucht-und Gem\u00fcses\u00e4fte", "maincatnum": 11, "subcatnum": 3, "contents": 0, "pack": 0, "origin": "Deutschland", "descr": "", "name_en": "", "detailname_en": "", "descr_en": "", "validated": "50 %"}
+{
+    "barcode": 4388844014862,
+    "error": 0,
+    "asin": "",
+    "name": "Traubensaft",
+    "detailname": "Merlot traube, rewe, 100% Direktsaft aus der merlot traube",
+    "vendor": "",
+    "maincat": "Getränke, Alkohol",
+    "subcat": "Frucht-und Gemüsesäfte",
+    "maincatnum": 11,
+    "subcatnum": 3,
+    "contents": 0,
+    "pack": 0,
+    "origin": "Deutschland",
+    "descr": "",
+    "name_en": "",
+    "detailname_en": "",
+    "descr_en": "",
+    "validated": "50 %"
+}
