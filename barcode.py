@@ -88,7 +88,7 @@ def scraper(start, amount, vendor_id, user_id):
 vendors = {"REWE": 438884}
 user_id = 765690123382645678008
 
-scraper(4014862, 100, vendors["REWE"], user_id)
+scraper(4014862+5, 4, vendors["REWE"], user_id)
 
 
 
