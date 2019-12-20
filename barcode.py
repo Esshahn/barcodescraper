@@ -12,7 +12,7 @@
 # stores valid barcode and information as separate JSON file in folder "barcodes"
 
 
-import json, requests, os, sys
+import json, requests, os, sys, time
 
 def get_as_dict(ean,user_id):
 
@@ -38,13 +38,17 @@ def get_as_dict(ean,user_id):
 def load_JSON_as_dict(filename):
     # load JSON
 
-    with open(sys.path[0] + '/' + filename, "a+") as json_file:
-        try:
-            json_data =  json.load(json_file)
-        except ValueError:
-            json_data = "{}"
+    file_exists = os.path.isfile(filename) 
+ 
+    if not file_exists:
+        f = open(filename, "w")
+        f.write('{}')
+        f.close()
     
-    return json.loads(json_data)
+    with open(sys.path[0] + '/' + filename, "r+") as json_file:     
+        json_data =  json.load(json_file)
+    
+    return json_data
 
 
 
@@ -69,14 +73,12 @@ def scraper(start, amount, vendor_id, user_id):
     for id in range(start,start+amount):
         vendor = vendor_id * 10000000 # REWE
         barcode = get_as_dict(vendor + id, user_id)
-        
-        print (barcode)
-        
+                
         if barcode["error"] is 0:
             write_as_json_file(barcode)
-            barcodes_valid.update( {barcode["barcode"] : barcode["error"]} )
+            barcodes_valid.update( {str(barcode["barcode"]) : barcode["error"]} )
         else:
-            barcodes_invalid.update( {barcode["barcode"] : barcode["error"]} )
+            barcodes_invalid.update( {str(barcode["barcode"]) : barcode["error"]} )
 
     update_file("valid.json",barcodes_valid)
     update_file("invalid.json",barcodes_invalid)
@@ -88,7 +90,7 @@ def scraper(start, amount, vendor_id, user_id):
 vendors = {"REWE": 438884}
 user_id = 765690123382645678008
 
-scraper(4014862+5, 4, vendors["REWE"], user_id)
+scraper(4014862, 10, vendors["REWE"], user_id)
 
 
 
