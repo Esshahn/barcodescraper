@@ -1,3 +1,15 @@
+#
+# OPEN EAN GTIN Database scraper script
+# 
+# not for production use
+# takes a vendor id and a barcode range
+# retrieves data from https://opengtindb.org/
+# reformats data to proper JSON
+# strips useless data (e.g. formatting strings)
+# converts number as strings to real numbers
+# stores valid barcodes in valid.json
+# stores invalid barcodes in invalid.json
+# stores valid barcode and information as separate JSON file in folder "barcodes"
 
 
 import json, requests, os, sys
@@ -76,7 +88,7 @@ def scraper(start, amount, vendor_id, user_id):
 vendors = {"REWE": 438884}
 user_id = 765690123382645678008
 
-scraper(4014862+10, 10, vendors["REWE"], user_id)
+scraper(4014862, 10, vendors["REWE"], user_id)
 
 
 
